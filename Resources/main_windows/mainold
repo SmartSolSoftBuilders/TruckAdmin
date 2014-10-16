@@ -1,0 +1,192 @@
+var win = Titanium.UI.currentWindow;
+
+var pantalla = Titanium.UI.createView({
+	top:0,
+	left:0,
+	width: '100%',
+	height: '100%',
+	backgroundColor: 'white',
+	layout: 'vertical',
+	zIndez:9999
+});
+
+win.add(pantalla);
+
+var actualizar = Titanium.UI.createButton({
+	title:'actualizar mis coordenadas',
+	color:'#000000',
+	font:{fontFamily:'Arial',fontWeight:'bold',fontSize:14},
+	width:300
+	
+});
+
+var ubicacion = Titanium.UI.createButton({
+	title:'compartir coordenadas',
+	color:'#000000',
+	font:{fontFamily:'Arial',fontWeight:'bold',fontSize:14},
+	width:300
+	
+});
+
+var ecuenta = Titanium.UI.createButton({
+	title:'Editar Datos Cuenta',
+	font:{fontFamily:'Arial',fontWeight:'bold',fontSize:14},
+	color:'#000000',
+	width:300,
+	top:50
+	
+});
+
+var eperfil = Titanium.UI.createButton({
+	title:'Editar Perfil',
+	font:{fontFamily:'Arial',fontWeight:'bold',fontSize:14},
+	color:'#000000',
+	width:300,
+	top:50
+});
+ 
+var msg = Titanium.UI.createLabel({
+    text:" \nlongitud\n" + win.longitud + "\n\nLatitud:\n" + win.latitud,
+    font:{fontFamily:'Arial',fontWeight:'bold',fontSize:18},
+    left:10,
+    width:300,
+    height:'auto'
+});
+
+pantalla.add(actualizar);
+pantalla.add(ubicacion);
+pantalla.add(eperfil);
+pantalla.add(ecuenta);
+pantalla.add(msg);
+
+ubicacion.addEventListener('click',function(e){
+	var ventanaCoor = Titanium.UI.createWindow({
+	title: 'coordenadas',
+	url: 'coord.js'
+});
+
+ventanaCoor.mivariable = 'Esta es mi variable';
+
+
+Titanium.UI.currentTab.open(ventanaCoor,{animation:true});
+});
+
+
+///////////////////////////////////////////////////////////////////////////
+
+
+var win = Titanium.UI.currentWindow;
+
+var pantalla = Titanium.UI.createView({
+	top:0,
+	left:0,
+	width: '100%',
+	height: '80%',
+	backgroundColor: 'white',
+	layout: 'vertical',
+	zIndez:9999
+});
+
+var footer = Titanium.UI.createView({
+	bottom:0,
+	left:0,
+	width: '100%',
+	height: '20%',
+	backgroundColor: 'grey',
+	layout: 'horizontal',
+	zIndez:9999
+});
+
+win.add(pantalla);
+win.add(footer);
+
+var anteriores = Titanium.UI.createLabel({
+    text:"Coordenadas anteriores:",
+    font:{fontFamily:'Arial',fontWeight:'bold',fontSize:18},
+    width:'100%',
+    height:'auto',
+    color: '#000'
+});
+
+var latitud = Titanium.UI.createLabel({
+    text:"Latitud: " + win.latitud,
+    font:{fontFamily:'Arial',fontWeight:'bold',fontSize:18},
+    width:'100%',
+    height:'auto',
+    color: '#000'
+});
+
+var longitud = Titanium.UI.createLabel({
+    text:"Latitud: " + win.longitud,
+    font:{fontFamily:'Arial',fontWeight:'bold',fontSize:18},
+    width:'100%',
+    height:'auto',
+    color: '#000'
+});
+
+var actualizar = Titanium.UI.createButton({
+	title:'actualizar mis coordenadas',
+	color:'#000000',
+	font:{fontFamily:'Arial',fontWeight:'bold',fontSize:14},
+	width:300
+	
+});
+
+var nombre = Titanium.UI.createTextField({
+	color:'#336699',
+	top:30,
+	width:300,
+	height:40,
+	hintText:'Nombre del lugar',
+	keyboardType:Titanium.UI.KEYBOARD_DEFAULT,
+	returnKeyType:Titanium.UI.RETURNKEY_DEFAULT,
+	borderStyle:Titanium.UI.INPUT_BORDERSTYLE_ROUNDED
+});
+
+var direccion = Titanium.UI.createTextField({
+	color:'#336699',
+	top:30,
+	width:300,
+	height:40,
+	hintText:'Direccion',
+	keyboardType:Titanium.UI.KEYBOARD_DEFAULT,
+	returnKeyType:Titanium.UI.RETURNKEY_DEFAULT,
+	borderStyle:Titanium.UI.INPUT_BORDERSTYLE_ROUNDED
+});
+
+var ubicacion = Titanium.UI.createButton({
+	title:'compartir ubicacion',
+	color:'#000000',
+	font:{fontFamily:'Arial',fontWeight:'bold',fontSize:14},
+	width:300,
+	
+});
+
+var cuenta = Titanium.UI.createButton({
+	title:'CUENTA',
+	color:'#ccc',
+	font:{fontFamily:'Arial',fontWeight:'bold',fontSize:14},
+	width:'50%',
+	height:'100%',
+	
+});
+
+var perfil = Titanium.UI.createButton({
+	title:'PERFIL',
+	color:'#ccc',
+	font:{fontFamily:'Arial',fontWeight:'bold',fontSize:14},
+	width:'50%',
+	height:'100%',
+	
+});
+
+pantalla.add(anteriores);
+pantalla.add(latitud);
+pantalla.add(longitud);
+pantalla.add(actualizar);
+pantalla.add(nombre);
+pantalla.add(direccion);
+pantalla.add(ubicacion);
+footer.add(cuenta);
+footer.add(perfil);
+
